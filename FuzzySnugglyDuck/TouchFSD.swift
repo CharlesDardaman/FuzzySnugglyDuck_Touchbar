@@ -54,7 +54,7 @@ class TouchFSD: NSWindowController {
         if start_button.title == "Start Magic" {
             audio_player?.play()
             start_button.title = "Stop"
-            //start_ducks()
+            start_ducks()
         } else{
             start_button.title = "Start Magic"
             audio_player?.pause()
@@ -64,8 +64,12 @@ class TouchFSD: NSWindowController {
     }
     
     func duck_coin_line(x : Int) -> NSView {
-        let ducks = NSImageView(frame: NSImageCell(x: x, y: 0, width: 30, height: 30))
-        ducks.image = duck_icon
+        let ducks = NSTextView(frame: NSRect(x: x, y: 0, width: 30, height: 30))
+        ducks.string = mvString
+        ducks.drawsBackground = false
+        ducks.isEditable = false
+        ducks.isSelectable = false
+        ducks.font = NSFont.systemFont(ofSize: 20)
         return ducks
     }
     
